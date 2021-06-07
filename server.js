@@ -1,7 +1,5 @@
-const { res } = require("express");
 var express = require("express");
-var fs = require("fs");
-var path = require("path");
+const htmlRoutes = require("./routes/hmtlRoutes.js")
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -9,6 +7,8 @@ var PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use('/', htmlRoutes);
+
 
 // app.get("/notes", function (res, req) {
 //   res.sendFile(path.join(__dirname, "/public/notes.html"));
