@@ -1,11 +1,1 @@
-[
-  { "title": "Test Title", "text": "Test text" },
-  { "title": "scream", "text": "now", "id": "9zr8inokpn0xzrp" },
-  {
-    "title": "ellllllo poppet",
-    "text": "why aren tou worling",
-    "id": "9zr8f5wkpn1edp7"
-  },
-  { "title": "whyyy", "text": "please work", "id": "9zr8ak8kpn1hvyl" },
-  { "title": "doesnt want to work", "text": "whyyy", "id": "9zr8ak8kpn1loq2" }
-]
+[{ "title": "Test Title", "text": "Test text", "id": "testiderg" }]
