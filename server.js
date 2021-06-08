@@ -43,7 +43,7 @@ app.delete("/api/notes/:id", (req, res) => {
   let id = req.params.id;
   console.log(id)
   
-  notedb = notedb.filter(note => note.id !== id);
+  notedb = notedb.filter(note => note.id !== id)
   noteString = JSON.stringify(notedb);
   
   fs.writeFile("./db/notes.json", notedb, (err) => err ? console.error(err) : console.log('Complete'));
