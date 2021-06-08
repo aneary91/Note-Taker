@@ -1,7 +1,3 @@
-const util = require('util');
-const fs = require('fs');
-
-const uniqid = require('uniqid');
 
 const asyncWrite = util.promisify(fs.writeFile);
 const asyncRead = util.promisify(fs.readFile);
@@ -17,26 +13,30 @@ class Storer {
 
     // methods to read and write notes
 
-    writeNote(note) {
+    addNote(note) {
         const { title, text } = note;
         // creating a new note that a titlte a text and a uniqid using the package uniqid
-        const newNote = { title, text, id: uniqid()};
-        return this.readNotes()
+        return this.getNotes()
             .then((notes) => [...notes, newNote])
             .then((newArr) => this.write(newArr))
             .then(() => newNote);
     }
 
         // 
-    readNotes() {
+    getNotes() {
         return this.read().then(notes => {
             let notesArray;
-            notesArray = [].concat(JSON.parse(notes));
-            return notesArray
+            try {
+
+                notesArray = [].concat(JSON.parse(notes));
+            } catch (e) {
+                notesArray = [];
+            }
+            return notesArray;
 
         })
     }
-}
+};
 
 module.exports = new Storer();
 
