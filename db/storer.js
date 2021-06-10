@@ -21,20 +21,20 @@ class Storer {
         const { title, text } = note;
         // creating a new note that a titlte a text and a uniqid using the package uniqid
         const newNote = { title, text, id: uniqid()};
-        return this.readNotes()
+        return this.getNotes()
             .then((notes) => [...notes, newNote])
             .then((newArr) => this.write(newArr))
             .then(() => newNote);
     }
 
         // 
-    readNotes() {
+    getNotes() {
         return this.read().then(notes => {
             let notesArray;
             notesArray = [].concat(JSON.parse(notes));
             return notesArray
 
-        })
+        });
     }
 }
 
